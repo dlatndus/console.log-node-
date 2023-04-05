@@ -30,7 +30,7 @@ const server = http.createServer(async(req, res)=>{
             while(li<fileList.length){
                 //replace로 쓸데 없는거 안보이게 하기
                 let dateData = fileList[li].replace("menu_","").replace(".txt","");
-                fileListText +=`<li><a href="/?data=${dateData}">${dateData}</a></li>`;
+                fileListText +=`<li><a href="/?date=${dateData}">${dateData}</a></li>`;
                 li+=1;
             }
 
@@ -41,11 +41,14 @@ const server = http.createServer(async(req, res)=>{
 
         const searchParams = new URL(req.url,"http://localhost:8089").searchParams;
         console.log("searchParams", searchParams);
-
-        const param_date = serchParams.get("date") || "null";
+        
+        const param_date = searchParams.get("date") || "null";
+        console.log("param_date", param_date);
         
         const fileName = path.join(__dirname, `./textFile/menu_${param_date}.txt`);
         let fileData = await fs.readFile(fileName);
+        let fileDataString = fileData.toString().replace(/\r/g,'<br/>');
+        console.log("텍스트 : ", fileDataString);
 
         const template = 
         `<!DOCTYPE html>
@@ -58,7 +61,7 @@ const server = http.createServer(async(req, res)=>{
             <h1> <a href="/">급식 메뉴</a></h1>
             ${fileListText}
             <br>
-            ${fileData}
+            ${fileDataString}
         </body>
         </html>`;
 
