@@ -51,5 +51,5 @@ server4.on('request', (req, res)=>{
 });
 
 server4.listen(3003, ()=> {
-    console.log("3002 port 리다이렉트 서버 시작");
+    console.log("3003 port 리다이렉트 서버 시작");
 });

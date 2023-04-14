@@ -11,6 +11,58 @@ const server = http.createServer(async (req, res) => {
             res.writeHead(404);
             res.end();
         }
+        const pathname = url.parse(req.url, true).pathname;
+        if(req.method == "POST"){
+            if (pathname == '/create_process') {
+                let body = "";
+                req.on('data', function (data) {
+                    body += data;
+                });
+                req.on('end', function () {
+                    const post = qs.parse(body);
+                    const title = post.title;
+                    const description = post.description;
+                    console.log("내용", post);
+                    fs.writeFile(path.join(__dirname, `./textFile/menu_${title}.txt`), description, 'utf-8', function (err) { });
+    
+    
+                    res.writeHead(302, { Location: `/?data=${encodeURIComponent(title)}` });
+                    res.end();
+                });
+            } else if (pathname == '/update_process') {
+                let body = "";
+                req.on('data', function (data) {
+                    body += data;
+                });
+                req.on('end', async function () {
+                    const post = qs.parse(body);
+                    const id = post.id;
+                    const title = post.title;
+                    const description = post.description;
+    
+                    // await fs.rename(`textFile/menu_${id}.txt`, `textFile/menu_${title}.txt`);
+                    // await fs.writeHead(`textFile/menu_${title}.txt`, description, 'utf-8');
+                    await fs.rename(path.join(__dirname, `textFile/menu_${id}.txt`), path.join(__dirname, `textFile/menu_${title}.txt`));
+                    await fs.writeFile(`textFile/menu_${title}.txt`, description, 'utf-8');
+    
+                    res.writeHead(302, { Location: `/?date=${encodeURIComponent(title)}` });
+                    res.end(templete);
+                });
+            } else if (pathname == '/delete_process') {
+                let body = "";
+                req.on('data', function (data) {
+                    body += data;
+                });
+                req.on('end', async function () {
+                    const post = qs.parse(body);
+                    const id = post.id;
+                    console.log("kk", id);
+                    await fs.unlink(path.join(__dirname, `textFile/menu_${id}.txt`));
+                    res.writeHead(302, { Location: `/` });
+                    res.end();
+                });
+            }
+        }else{
         //지정된 폴더의 파일 리스트를 읽어와서 본문 안에 넣기
         const menuFolder = path.join(__dirname, "./textFile");
         console.log("내가 읽고 싶은 폴더 : ", menuFolder);
@@ -41,7 +93,7 @@ const server = http.createServer(async (req, res) => {
         let fileDataString = fileData.toString().replace(/\r/g, '<br/>');
         console.log("텍스트 : ", fileDataString);
 
-        const pathname = url.parse(req.url, true).pathname;
+        
         let subContent = "";
         let title = "";
         if (pathname == '/create') {
@@ -87,57 +139,10 @@ const server = http.createServer(async (req, res) => {
         </html>
         `
 
-        if (pathname == '/create_process') {
-            let body = "";
-            req.on('data', function (data) {
-                body += data;
-            });
-            req.on('end', function () {
-                const post = qs.parse(body);
-                const title = post.title;
-                const description = post.description;
-                console.log("내용", post);
-                fs.writeFile(path.join(__dirname, `./textFile/menu_${title}.txt`), description, 'utf-8', function (err) { });
+        
+        res.writeHead(200, { 'Content-Type': 'text/html;charset-utf-8' });
+        res.end(templete);
 
-
-                res.writeHead(302, { Location: `/?data=${encodeURIComponent(title)}` });
-                res.end();
-            });
-        } else if (pathname == '/update_process') {
-            let body = "";
-            req.on('data', function (data) {
-                body += data;
-            });
-            req.on('end', async function () {
-                const post = qs.parse(body);
-                const id = post.id;
-                const title = post.title;
-                const description = post.description;
-
-                // await fs.rename(`textFile/menu_${id}.txt`, `textFile/menu_${title}.txt`);
-                // await fs.writeHead(`textFile/menu_${title}.txt`, description, 'utf-8');
-                await fs.rename(path.join(__dirname, `textFile/menu_${id}.txt`), path.join(__dirname, `textFile/menu_${title}.txt`));
-                await fs.writeFile(`textFile/menu_${title}.txt`, description, 'utf-8');
-
-                res.writeHead(302, { Location: `/?date=${encodeURIComponent(title)}` });
-                res.end(templete);
-            });
-        } else if (pathname == '/delete_process') {
-            let body = "";
-            req.on('data', function (data) {
-                body += data;
-            });
-            req.on('end', async function () {
-                const post = qs.parse(body);
-                const id = post.id;
-                console.log("kk", id);
-                await fs.unlink(path.join(__dirname, `textFile/menu_${id}.txt`));
-                res.writeHead(302, { Location: `/` });
-                res.end();
-            });
-        } else {
-            res.writeHead(200, { 'Content-Type': 'text/html;charset-utf-8' });
-            res.end(templete);
         }
 
 

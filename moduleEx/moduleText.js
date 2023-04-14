@@ -1,3 +1,5 @@
+const useModule = require("./useModule")
+
 const text_odd = "홀수입니다";
 const text_even = "짝수입니다";
 
