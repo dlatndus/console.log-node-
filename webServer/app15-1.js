@@ -98,8 +98,8 @@ router.route('/process/login').post(function(req, res) {
 });
 
 
-router.route('/process/photo12').post(upload.array('photo12', 12), function(req, res) {
-    console.log('/process/photo12 호출함.');
+router.route('/process/photo').post(upload.array('photo', 12), function(req, res) {
+    console.log('/process/photo 호출함.');
     res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
     try{
         var files = req.files;
@@ -131,7 +131,7 @@ router.route('/process/photo12').post(upload.array('photo12', 12), function(req,
 					res.write('<p>파일 크기 : ' + size + '</p>');
 					res.end();
 				}
-				res.write("<br><br><button><a href='/process/product'>상품 페이지로 이동하기</a></button>");
+				res.write("<button><a href='/process/product'>상품 페이지로 이동하기</a></button>");
             }
     }
     catch(err){
