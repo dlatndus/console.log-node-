@@ -92,7 +92,7 @@ var upload = multer({
 var router = express.Router();
 
 // 파일 업로드 라우팅 함수 - 로그인 후 세션 저장함
-router.route('/process/photo').post(upload.array('photo', 12), function(req, res) {
+router.route('/process/photo12').post(upload.array('photo12', 12), function(req, res) {
 	console.log('/process/photo12 호출됨.');
 	res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
 	try {
@@ -117,7 +117,7 @@ router.route('/process/photo').post(upload.array('photo', 12), function(req, res
 					+ mimetype + ', ' + size);
 			
 					// 클라이언트에 응답 전송
-					res.write( '<h3> 임수연님 '+(index+1)+' 번째 파일 업로드 성공</h3>');
+					res.write( '<h3> 윤선희님 '+(index+1)+' 번째 파일 업로드 성공</h3>');
 					res.write('<hr/>');
 					res.write('<p>원본 파일명 : ' + originalname + '<br> -> 저장 파일명 : ' + filename + '</p>');
 					res.write('<p>MIME TYPE : ' + mimetype + '</p>');
