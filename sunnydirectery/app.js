@@ -90,7 +90,7 @@ router.route('/process/login').post(function(req, res) {
 });
 
 
-router.route('/process/photo').post(upload.array('photo', 12), function(req, res) {
+router.route('/process/photomulti_link').post(upload.array('photo', 12), function(req, res) {
     console.log('/process/photo 호출함.');
     res.writeHead('200', {'Content-Type':'text/html;charset=utf8'});
     try{
