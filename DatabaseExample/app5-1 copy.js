@@ -74,7 +74,7 @@ var UserModel;
 //데이터베이스에 연결
 function connectDB() {
 	// 데이터베이스 연결 정보
-	var databaseUrl = 'mongodb+srv://sooyeon:alflarhkgkrrh1!@cluster0.swopf1f.mongodb.net/';
+	var databaseUrl = 'mongodb://127.0.0.1:27017/local';
 
 	// 데이터베이스 연결
 	console.log('데이터베이스 연결을 시도합니다.');
@@ -253,21 +253,13 @@ router.route('/process/login').post(function (req, res) {
 				// 조회 결과에서 사용자 이름 확인
 				var username = docs[0].name;
 
-				//res.redirect("/process/login")
-				
-				/**res.write(' <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>')
-				res.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>') */
 				res.writeHead('200', { 'Content-Type': 'text/html;charset=utf8' });
-				res.write('    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">')
-				
-				res.write('<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>')
-
 				res.write('<hr>');
-				res.write('<h3>로그인 성공</h3>');
+				res.write('<h1>로그인 성공</h1>');
 				res.write('<hr>');
-				res.write('<button class="btn btn-info"><a href="/public/adduser.html" >사용자추가</a></button>');
-				res.write('<button class="btn btn-info"><a href="/public/listuser.html" >사용자리스트</a></button>');
-				res.write('<button class="btn btn-info"><a href="/" >메인페이지</a></button>');
+				res.write('<div><a href="/public/adduser.html" class="btn btn-info">사용자추가</a></div>');
+				res.write('<div><a href="/public/listuser.html" class="btn btn-info">사용자리스트</a></div>');
+				res.write('<div><a href="/" class="btn btn-info">메인페이지</a></div>');
 				res.end();
 
 			} else {  // 조회된 레코드가 없는 경우 실패 응답 전송
@@ -325,7 +317,7 @@ router.route('/process/adduser').post(function (req, res) {
 				res.write('<h2>사용자 추가 성공</h2>');
 				res.write('<hr>');
 				res.write('<div><a href="/public/adduser.html" class="btn btn-info">사용자추가</a></div>');
-				res.write('<div><a href="/public/listuser.html" class="btn btn-info">사용자리스트</a></div>');
+				es.write('<div><a href="/public/listuser.html" class="btn btn-info">사용자리스트</a></div>');
 				res.write('<div><a href="/" class="btn btn-info">메인페이지</a></div>');
 				res.end();
 			} else {  // 결과 객체가 없으면 실패 응답 전송
@@ -370,9 +362,6 @@ router.route('/process/listuser').post(async function (req, res) {
 				}
 
 				res.write('</ul></div>');
-				res.write('<br>');
-				res.write('<button><a href="/public/adduser.html" class="btn btn-info">사용자추가</a></button>');
-				res.write('<button><a href="/public/login.html" class="btn btn-info">로그인</a></button>');
 				res.end();
 			} else {  // 결과 객체가 없으면 실패 응답 전송
 				res.writeHead('200', { 'Content-Type': 'text/html;charset=utf8' });

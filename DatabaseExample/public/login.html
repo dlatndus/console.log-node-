@@ -5,21 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<style>
+    h3{
+        margin: 10px;
+    }
+    form{
+        margin: 10px;
+    }
+</style>
 </head>
 <body>
+    <hr>
+    <h3>로그인</h3>
+    <hr>
     <form method="post" action="/process/login">
         <table>
         <tr>
-        <td><label class="btn btn-info">아이디</label></td>
+        <td><label class="btn btn-info"> 아 이 디 </label></td>
         <td><input type="text" name="id" /></td>
         </tr>
         <tr>
-        <td><label class="btn btn-info" >비밀번호</label></td>
+        <td ><label class="btn btn-info">비밀번호</label></td>
         <td><input type="password" name="password" /></td>
         </tr>
         </table>
-        <input type="submit" value="확 인" name="" />
-        <a href="/"><button>메인페이지</button></a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" value="확 인" name="" class="btn btn-info" />
+        <a href="/"><button class="btn btn-info">메인페이지</button></a>
         </form>
         
 </body>
