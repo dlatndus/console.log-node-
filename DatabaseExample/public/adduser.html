@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 성공</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<style>
+    h3{
+        margin: 10px;
+    }
+    form{
+        margin: 10px;
+    }
+</style>
+
+</head>
+
+<body>
+    <hr>
+    <h3>사용자추가</h3>
+    <hr>
+    <br>
+    <form method="post" action="/process/adduser">
+
+        <table>
+            <tr>
+                <td><label class="btn btn-info">아 이 디 </label></td>
+                <td><input type="text" name="id" /></td>
+            </tr>
+            <tr>
+                <td><label class="btn btn-info">비밀번호</label></td>
+                <td><input type="password" name="password" /></td>
+            </tr>
+            <tr>
+                <td><label class="btn btn-info">사용자명</label></td>
+                <td><input type="text" name="name" /></td>
+            </tr>
+        </table>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" value="전송" name="" class="btn btn-info"/>
+        <a href="/"><button class="btn btn-info">메인페이지</button></a>
+    </form>
+</body>
+
+</html>
