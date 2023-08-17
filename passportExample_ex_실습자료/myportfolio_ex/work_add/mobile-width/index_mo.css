@@ -1,0 +1,8 @@
+canvas#tshirtCanvas {
+	margin: 0 auto;
+ 	/* height: 66%; */
+ 	height:200pt;
+	width: 99%; 
+	border: 1px solid black;
+}
+

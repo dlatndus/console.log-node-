@@ -1,0 +1,10 @@
+.center{
+    background-size: contain;
+    border:1px solid #dedede;
+    width:600px; height:80px; 
+    line-height:80px; color:#666;
+    font-size:100px; text-align:center;
+    @media (min-width:30px) and (max-width:50px){html{font-size:120px;}};
+    width:100%;
+    font-size: 4rem; 
+}

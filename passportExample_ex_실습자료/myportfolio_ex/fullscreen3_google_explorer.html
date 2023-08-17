@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html> 
+<head><meta charset="utf-8">
+    <style>
+        * {
+            margin:0;padding:0;
+        }
+        html, body{
+            width:100%;height:100%;background-color: black;
+        }
+        #video1 {
+            top:-50px;
+            width:100%;
+            height:280;
+            color:#fff;
+            font-size:24px;
+            position:relative;
+            font-family:"Courier New", Courier, monospace;
+            /*    background:url(video/mov_bbb.mp4) center center/cover no-repeat;*/
+            background:url(video/mov_bbb.mp4);
+            z-index:1;
+        }
+
+        .logo{
+            position:relative; color:blue;
+            left:30px; top:30px;
+            z-index:2;
+        }
+        .content h2{
+            position:absolute;
+            left: 35%; font-size:2em;  top:200px; color:#9933ff; z-index:3;
+        }
+        a{text-decoration: none;  
+        }
+        .copy {
+            position:fixed;
+            left: 85%; bottom:50px;
+            color:#3300ff; z-index:4;
+        }
+    </style>
+</head>
+
+<body> 
+    <section class="cover">
+    <!-- <h1 class="logo">Logo</h1> -->
+
+<video id="video1" controls="false" autoplay="true" preload="true">     
+	<!--구글용, 구글에서는 z-index  가 양수 1부터 적용해야함-->
+    <source src="video/mov_bbb.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+    </video>
+	<div class="content">
+    <!-- <h2><a href = "main.html">Welcome SunHee homepage</a></h2> -->
+	</div>
+    <!-- <p class="copy">SunHee&Copyright.</p> -->
+    </section>
+
+</body> 
+</html>

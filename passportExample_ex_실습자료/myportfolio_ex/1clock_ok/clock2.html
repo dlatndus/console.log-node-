@@ -1,0 +1,101 @@
+<html>
+ <head><title>css3 button,css outline,..</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+      * {box-sizing: border-box}
+	body { 
+	background-color:white;
+	}
+    .center{align-self: center;}
+   .button1 {
+    margin: 38px 2px;
+    background:  whitesmoke;
+    border: 1px solid lightgray;
+    color: black;
+    padding: 12px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    /* margin: 4px 2px; */
+    cursor: pointer;
+	}
+	.button2 {
+    background-color: whitesmoke;
+    border: 1px solid lightgray;
+    color: black;    padding: 12px 12px;
+    /* padding: 16px 32px; */
+    padding: 12px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    /* margin: 4px 2px; */
+    cursor: pointer; 
+	}
+	.button1:hover {
+    background-color: #33ffff;
+    color: white;
+	}
+	.button2:hover {
+    background-color: #cc99ff;
+    color: white;
+	}
+	.text1{
+        /* http://schoolschool.co.kr/bbs/board.php?bo_table=tip&wr_id=127&sca=%EC%9B%B9%ED%8D%BC%EB%B8%94%EB%A6%AC%EC%8B%B1
+        @media (max-width:360px){html{font-size:10px;}}
+@media (min-width:361px) and (max-width:399px){html{font-size:11px;}} */
+ /* @media (min-width:300px) and (max-width:1000px){html{font-size:70px;}};  */
+ @media (min-width:30px) and (max-width:50px){html{font-size:120px;}};
+
+     /* width:100%; */
+    font-size: 2rem; 
+    background-color: black;
+    border:15px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    border-style: outset;
+    /* font-size: 120px; */
+    /* font-size:10em; */
+    margin: 4px 2px;
+    cursor: pointer;
+	}
+  </style>
+  <script>
+  var timerID = null
+  function stopclock(){		
+	  clearTimeout(timerID)  
+  }
+  function showtime(){
+		var now = new Date();
+		var hours =  now.getHours();
+		var minutes = now.getMinutes();
+		var seconds = now.getSeconds();
+		var timeValue = "" + ((hours > 12) ? hours - 12 : hours);
+		timeValue += ((minutes < 10) ? ":0" : ":") + minutes;
+		timeValue += ((seconds < 10) ? ":0" : ":") + seconds;
+		timeValue += (hours > 12) ? " P.M." : " A.M."
+		document.clock.face.value = timeValue
+		timerID = setTimeout("showtime()" , 1000)
+  }
+  </script>
+ </head>
+ <body>
+
+	<center>
+	<form name = "clock" fontsize = 70>
+        <div>
+		<input class = text1 type = "text" size = 12 name = "face" value = "">
+        </div>
+        <div>
+        <center>
+		<input class = button1 type = "button" value = "시작" onclick = "showtime()">
+		<input class = button2 type = "button" value = "정지" onclick = "stopclock()">
+        </center>
+    </div>
+	</form>
+	</center>
+
+ </body>
+</html>

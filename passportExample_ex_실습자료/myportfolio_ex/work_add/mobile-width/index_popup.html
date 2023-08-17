@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>TweetShirt</title>
+<meta charset="utf-8" />
+
+	<!--최신 모바일형태-->
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>  
+	<!--모바일형태-->	
+
+	<link rel="stylesheet" href="index_mo.css">
+	<script type="text/javascript" charset="utf-8" src="index_mo.js"></script>
+</head>
+<body>
+	<canvas  id="tshirtCanvas">
+		<p>You need canvas to use Tweetshirt!</p>
+		<p>This example requires a browser that supports the
+		<a href="https://www.w3.org/html/wg/html5/">HTML5</a> 
+		&lt;canvas&gt; feature.</p>
+	</canvas>
+	
+<a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" 
+data-transition="pop">manual</a>
+<div data-role="popup" id="popupBasic">
+<p>canvas에  배경색, 모양, 모양색, 글씨색을 선택후 티셔츠의 디자인을 완성하여 보세요~ </p>
+</div> 
+<!-- <a href="../index.html" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">HOME</a> -->
+
+	<form>
+		<p>
+			<label for="backgroundColor">Select background color:</label> <select
+				id="backgroundColor">
+				<option value="none" selected="selected">Neither</option>
+				<option value="red">Red</option>
+				<option value="magenta">Mgenta</option>
+				<option value="yellow">Yellow</option>
+				<option value="green">Green</option>
+				<option value="lightblue">Lightblue</option>
+				<option value="blue">Blue</option>
+				<option value="violet">Violet</option>
+			</select>
+		</p>
+
+		<p>
+			<label for="shape">Select shape?</label> <select id="shape">
+				<option value="none" selected="selected">Neither</option>
+				<option value="squares">Squares</option>
+				<option value="circles">Circles</option>
+				<option value="lines">Lines</option>
+			</select>
+		</p>
+		<p>
+			<label for="shapeColor">Select shapeColor:</label> <select
+				id="shapeColor">
+				<option value="none" selected="selected">Neither</option>
+				<option value="red">Red</option>
+				<option value="magenta">Mgenta</option>
+				<option value="yellow">Yellow</option>
+				<option value="green">Green</option>
+				<option value="lightblue">Lightblue</option>
+				<option value="blue">Blue</option>
+				<option value="violet">Violet</option>
+			</select>
+		</p>
+		<p>
+			<label for="foregroundColor">Select foregroundColor:</label> <select
+				id="foregroundColor">
+				<option value="none" selected="selected">Neither</option>
+				<option value="red">Red</option>
+				<option value="magenta">Mgenta</option>
+				<option value="yellow">Yellow</option>
+				<option value="green">Green</option>
+				<option value="lightblue">Lightblue</option>
+				<option value="blue">Blue</option>
+				<option value="violet">Violet</option>
+			</select>
+		</p>
+
+
+<!-- 		<p>
+			<label for="tweets">Pick a Tweets:</label> <select id="tweets">
+			</select>
+		</p> -->
+
+		<p>
+			<input type="button" id="previewButton" value="Preview">
+		</p>
+	</form>
+<!-- 	<script
+		src="http://tweetshirt.wickedlysmart.com/?callback=updateTweets">
+	</script> -->
+
+</body>
+</html>
+
+
+
+
